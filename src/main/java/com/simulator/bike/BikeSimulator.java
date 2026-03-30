@@ -2,9 +2,9 @@ package com.simulator.bike;
 
 import com.simulator.bike.enumeration.Command;
 import com.simulator.bike.enumeration.Direction;
+import java.util.Scanner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import java.util.Scanner;
 
 public class BikeSimulator {
 
@@ -66,7 +66,9 @@ public class BikeSimulator {
   public void processInput(Scanner scanner) {
     while (scanner.hasNextLine()) {
       String line = scanner.nextLine().trim();
-      if (line.isEmpty()) continue;
+      if (line.isEmpty()) {
+        continue;
+      }
       processCommand(line);
     }
   }
@@ -75,8 +77,7 @@ public class BikeSimulator {
    * Processes a single command string by parsing it and invoking the corresponding action on the bike.
    *
    * @param command The raw command string to be parsed and executed.
-   * @return true if the command was processed successfully (or was invalid but ignored),
-   *         false if the command indicates an exit.
+   * @return true if the command was processed successfully (or was invalid but ignored), false if the command indicates an exit.
    */
   public boolean processCommand(String command) {
     try {

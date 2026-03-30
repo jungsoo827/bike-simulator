@@ -1,12 +1,10 @@
 package com.simulator.bike;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class App {
 
@@ -48,7 +46,7 @@ public class App {
       Scanner scanner = new Scanner(System.in);
       while (scanner.hasNextLine()) {
         String line = scanner.nextLine();
-        if (!bikeSimulator.processCommand(line)){
+        if (!bikeSimulator.processCommand(line)) {
           break;
         }
       }

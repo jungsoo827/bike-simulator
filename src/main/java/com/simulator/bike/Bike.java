@@ -21,15 +21,14 @@ public class Bike {
 
 
   public void place(int x, int y, Direction direction) {
-    this.x = x;
-    this.y = y;
-    this.direction = direction;
-    if (this.x > -1 && this.y > -1 && direction != null) {
-      placed = true;
+    if (this.grid.isValidPosition(x, y) && direction != null) {
+      this.x = x;
+      this.y = y;
+      this.direction = direction;
+      this.placed = true;
     } else {
-      placed = false;
+      logger.warn("Invalid placement: ({}, {}, {})", x, y, direction);
     }
-
   }
 
   public boolean hasPlaced() {

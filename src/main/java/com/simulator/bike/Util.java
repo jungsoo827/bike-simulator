@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 public class Util {
 
   private static final Logger logger = LoggerFactory.getLogger(Util.class);
+
   public static boolean isValid(String input) {
     return input != null && !input.isEmpty();
   }
