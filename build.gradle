@@ -18,6 +18,10 @@ dependencies {
     implementation libs.logback.classic
 }
 
+clean {
+    delete buildDir
+}
+
 test {
     useJUnitPlatform()
 }
