@@ -26,7 +26,7 @@ The application is structured into clearly separated layers to ensure maintainab
 
 This architecture enforces the Single Responsibility Principle, ensuring that command parsing, movement logic, and I/O handling are strictly isolated.
 
-## Class Diagram
+### Class Diagram
 ![Bike Simulation UML](bike-simulator.puml)
 *(If the UML diagram above does not render in your environment, please refer to [bike-simulator-uml.png](bike-simulator-uml.png))*
 
