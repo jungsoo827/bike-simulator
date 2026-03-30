@@ -44,12 +44,7 @@ public class App {
       logger.info("Reading input from STDIN");
       bikeSimulator.usage();
       Scanner scanner = new Scanner(System.in);
-      while (scanner.hasNextLine()) {
-        String line = scanner.nextLine();
-        if (!bikeSimulator.processCommand(line)) {
-          break;
-        }
-      }
+      bikeSimulator.processInput(scanner);
       scanner.close();
     }
     logger.info("Bike Simulator finished");
