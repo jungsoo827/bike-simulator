@@ -1,0 +1,78 @@
+@startuml
+' Title
+title Bike Simulator Application
+
+' Classes
+class App {
+    + main(args: String[]): void
+}
+
+class BikeSimulator {
+    - bike: Bike
+    - grid: Grid
+    + processInput(scanner: Scanner): boolean
+    + processCommand(command: String): boolean
+    - placeCommand(params: String): void
+    - usage(): void
+}
+
+class Bike {
+    - x: int
+    - y: int
+    - direction: Direction
+    - grid: Grid
+    + place(x: int, y: int, direction: Direction): void
+    + forward(): void
+    + turnLeft(): void
+    + turnRight(): void
+    + getReport(): String
+}
+
+class Grid {
+    - width: int
+    - height: int
+    + isValidPosition(x: int, y: int): boolean
+    + getWidth(): int
+    + getHeight(): int
+    + getBoundaryString(): String
+}
+enum Direction {
+    NORTH
+    SOUTH
+    EAST
+    WEST
+    + turnLeft(): Direction
+    + turnRight(): Direction
+}
+
+enum Command {
+    PLACE
+    FORWARD
+    TURN_LEFT
+    TURN_RIGHT
+    GPS_REPORT
+    EXIT
+}
+
+' Relationships
+App --> BikeSimulator : uses
+BikeSimulator --> Bike : orchestrates
+BikeSimulator --> Grid : uses
+Bike --> Grid : constrained by
+Bike --> Direction : has
+BikeSimulator --> Command : parses
+
+' Commands
+note right of App
+  Supports STDIN (interactive)
+  or file input
+end note
+
+
+note right of Bike
+  Grid size: 7x7
+  (0,0) is south-west corner
+  Valid directions: NORTH, SOUTH, EAST, WEST
+end note
+
+@enduml
