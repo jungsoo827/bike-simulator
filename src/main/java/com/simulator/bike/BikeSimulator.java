@@ -20,6 +20,8 @@ public class BikeSimulator {
 
 
   public void usage() {
+    System.out.println("");
+    System.out.println("----------------------------------------------------------------------------");
     System.out.println("Usage:");
     System.out.println("  PLACE x,y,direction - Position bike at specified coordinates and direction");
     System.out.println("  FORWARD             - Move bike one unit forward in current direction");
@@ -32,7 +34,8 @@ public class BikeSimulator {
     System.out.println("");
     System.out.println("Valid directions: NORTH, SOUTH, EAST, WEST");
     System.out.println("Grid size: " + this.grid.getBoundaryString() + " and (0,0) is the south-west corner");
-
+    System.out.println("----------------------------------------------------------------------------");
+    System.out.println("");
   }
 
 
