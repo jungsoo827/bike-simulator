@@ -4,7 +4,7 @@ A Java application that simulates a bike moving on a 7x7 grid with support for v
 
 ## Objective
 
-The objective of this application is to implement a simulation engine that enforces grid boundaries and command integrity, demonstrating clean object-oriented design principles in Java.
+The goal of this application is to implement a simulation engine that enforces grid boundaries and command integrity, demonstrating clean object-oriented design principles in Java.
 
 ## Design and Approach 
 
