@@ -9,9 +9,9 @@ The objective of this application is to implement a simulation engine that enfor
 ## Design and Approach 
 
 ### Why I Selected the Bike-Simulation Challenge
-I selected the Bike-Simulation challenge to showcase my strengths in software architecture and Object-Oriented design. 
-Unlike mathematical puzzles, this challenge reflects real-world engineering realities—such as handling unpredictable input and enforcing strict business rules at system boundaries. 
-It perfectly highlights my ability to design clean, maintainable code structures.
+I selected the Bike-Simulation challenge because it allows me to demonstrate fundamental Object-Oriented programming principles. 
+Unlike mathematical puzzles, this challenge closely reflects real-world software engineering such as handling unpredictable input and enforcing strict business rules at system boundaries. 
+My primary strength lies in software architecture and organizing code structures, making this challenge the best fit to showcase my expertise.
 
 
 ### Design & Architectural Approach
@@ -29,7 +29,7 @@ The application is structured into clearly separated layers to ensure maintainab
 This architecture enforces the Single Responsibility Principle, ensuring that command parsing, movement logic, and I/O handling are strictly isolated.
 
 ### Class Diagram
-![Bike Simulation UML(bike-simulator.puml)
+![Bike Simulation UML](bike-simulator.puml)
 *(If the UML diagram above does not render in your environment, please refer to [bike-simulator-uml.png](bike-simulator-uml.png))*
 
 ## Features
@@ -45,6 +45,7 @@ This architecture enforces the Single Responsibility Principle, ensuring that co
   - `USAGE` - Usage description
   - `help` - Usage description
 - **Boundary Enforcement**: Bike cannot exit the grid boundaries
+- **Invalid Command**: Invalid commands will be ignored ( invalid positions, directions, commands )
 - **Input Handling**: Reads commands from STDIN or Reads file
 
 ## Building
