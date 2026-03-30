@@ -43,8 +43,8 @@ This architecture enforces the Single Responsibility Principle, ensuring that co
   - `USAGE` - Usage description
   - `help` - Usage description
 - **Boundary Enforcement**: Bike cannot exit the grid boundaries
-- **Invalid Command**: Invalid commands will be ignored ( invalid positions, directions, commands )
-- **Input Handling**: Reads commands from STDIN or Reads file
+- **Invalid Command**: Invalid commands will be ignored (invalid positions, directions, commands)
+- **Input Handling**: Reads commands from STDIN or Reads a file
 
 ## Building
 
