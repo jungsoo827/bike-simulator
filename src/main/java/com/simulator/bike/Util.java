@@ -16,12 +16,14 @@ public class Util {
 
   public static Command parseCommand(String input) {
     if (Util.isValid(input)) {
-      String[] array = input.split(" ");
+      String[] array = input.trim().split(" ");
       try {
         if (array.length > 1) {
-          return Command.valueOf(array[0]);
+          if (Util.isValid(array[0])) {
+            return Command.valueOf(array[0].trim().toUpperCase());
+          }
         } else {
-          return Command.valueOf(input);
+          return Command.valueOf(input.trim().toUpperCase());
         }
       } catch (Exception e) {
         // do nothing
@@ -44,7 +46,7 @@ public class Util {
   public static Direction parseDirection(String input) {
     if (Util.isValid(input)) {
       try {
-        return Direction.valueOf(input.trim());
+        return Direction.valueOf(input.trim().toUpperCase());
       } catch (Exception e) {
         // do nothing
       }

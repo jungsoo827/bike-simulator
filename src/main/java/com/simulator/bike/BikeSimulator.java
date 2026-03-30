@@ -42,6 +42,7 @@ public class BikeSimulator {
   private void placeCommand(String params) {
     String[] args = params.split(",");
     if (args.length != 3) {
+      logger.error("PLACE command requires 3 comma-separated parameters (x,y,direction)");
       return;
     }
 
@@ -52,17 +53,18 @@ public class BikeSimulator {
         logger.error("Invalid bike position x ({}) y ({})", args[0], args[1]);
         return;
       }
-      if (!this.grid.isValidPosition(tempX, tempX)) {
+      if (!this.grid.isValidPosition(tempX, tempY)) {
         logger.warn("Bike cannot be placed outside boundary. " + this.grid.getBoundaryString());
         return;
       }
       Direction direction = Util.parseDirection(args[2]);
       if (direction == null) {
         logger.warn("Invalid direction. " + args[2]);
+        return;
       }
       bike.place(tempX, tempY, direction);
     } catch (NumberFormatException e) {
-      logger.error("Invalid bike position x (" + args[0] + ") y (" + args[1] + ")");
+      logger.error("Invalid bike position format: " + params);
     }
   }
 
@@ -72,7 +74,9 @@ public class BikeSimulator {
       if (line.isEmpty()) {
         continue;
       }
-      processCommand(line);
+      if (!processCommand(line)) {
+        break;
+      }
     }
   }
 
@@ -85,10 +89,7 @@ public class BikeSimulator {
   public boolean processCommand(String command) {
     try {
       logger.debug("Command: {}", command);
-      if (!Util.isValid(command)) {
-        logger.error("Command not valid: " + command);
-        return true;
-      }
+
       Command cmd = Util.parseCommand(command);
       if (cmd == null) {
         logger.error("Command not valid: " + command);
@@ -97,7 +98,7 @@ public class BikeSimulator {
 
       switch (cmd) {
         case PLACE:
-          String params = command.substring(6);
+          String params = command.trim().substring(cmd.name().length());
           placeCommand(params);
           break;
         case FORWARD:
@@ -119,10 +120,9 @@ public class BikeSimulator {
         case EXIT:
           return false;
       }
-    } catch (IllegalArgumentException e) {
-      // Ignore invalid commands
+    } catch (Exception e) {
+      logger.error("Error processing command: " + command, e);
     }
     return true;
   }
-
 }
