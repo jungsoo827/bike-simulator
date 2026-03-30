@@ -20,7 +20,7 @@ public class BikeSimulator {
 
 
   public void usage() {
-    System.out.println("");
+    System.out.println();
     System.out.println("----------------------------------------------------------------------------");
     System.out.println("Usage:");
     System.out.println("  PLACE x,y,direction - Position bike at specified coordinates and direction");
@@ -31,11 +31,11 @@ public class BikeSimulator {
     System.out.println("  USAGE               - Usage description");
     System.out.println("  help                - Usage description");
     System.out.println("  EXIT                - End bike simulation");
-    System.out.println("");
+    System.out.println();
     System.out.println("Valid directions: NORTH, SOUTH, EAST, WEST");
     System.out.println("Grid size: " + this.grid.getBoundaryString() + " and (0,0) is the south-west corner");
     System.out.println("----------------------------------------------------------------------------");
-    System.out.println("");
+    System.out.println();
   }
 
 
@@ -54,17 +54,17 @@ public class BikeSimulator {
         return;
       }
       if (!this.grid.isValidPosition(tempX, tempY)) {
-        logger.warn("Bike cannot be placed outside boundary. " + this.grid.getBoundaryString());
+        logger.warn("Bike cannot be placed outside boundary. {}", this.grid.getBoundaryString());
         return;
       }
       Direction direction = Util.parseDirection(args[2]);
       if (direction == null) {
-        logger.warn("Invalid direction. " + args[2]);
+        logger.warn("Invalid direction. {}", args[2]);
         return;
       }
       bike.place(tempX, tempY, direction);
     } catch (NumberFormatException e) {
-      logger.error("Invalid bike position format: " + params);
+      logger.error("Invalid bike position format: {}", params);
     }
   }
 
@@ -92,7 +92,7 @@ public class BikeSimulator {
 
       Command cmd = Util.parseCommand(command);
       if (cmd == null) {
-        logger.error("Command not valid: " + command);
+        logger.error("Command not valid: {}", command);
         return true;
       }
 
@@ -121,7 +121,7 @@ public class BikeSimulator {
           return false;
       }
     } catch (Exception e) {
-      logger.error("Error processing command: " + command, e);
+      logger.error("Error processing command: {}", command, e);
     }
     return true;
   }

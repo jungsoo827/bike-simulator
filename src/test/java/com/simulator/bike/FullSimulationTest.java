@@ -13,11 +13,11 @@ public class FullSimulationTest {
 
         // Attempt to place outside grid boundaries
         bike.place(10, 10, Direction.NORTH);
-        assertEquals("Bike has not been placed yet.", bike.getReport());
+        assertEquals(Bike.notYetPlacedMessage(), bike.getReport());
 
         // Attempt to place with invalid coordinates
         bike.place(-1, 0, Direction.NORTH);
-        assertEquals("Bike has not been placed yet.", bike.getReport());
+        assertEquals(Bike.notYetPlacedMessage(), bike.getReport());
     }
 
 
@@ -57,10 +57,10 @@ public class FullSimulationTest {
         Bike bike = new Bike(grid);
 
         // Bike not placed yet
-        assertEquals("Bike has not been placed yet.", bike.getReport());
+        assertEquals(Bike.notYetPlacedMessage(), bike.getReport());
 
         bike.forward();
-        assertEquals("Bike has not been placed yet.", bike.getReport());
+        assertEquals(Bike.notYetPlacedMessage(), bike.getReport());
     }
 
     @Test

@@ -38,6 +38,6 @@ public class AppTest {
 
     String output = out.toString();
     // Verify it handles invalid commands gracefully
-    assertTrue(output.contains("Bike has not been placed yet."));
+    assertTrue(output.contains(Bike.notYetPlacedMessage()));
   }
 }

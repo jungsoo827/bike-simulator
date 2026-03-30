@@ -35,9 +35,18 @@ public class Bike {
     return placed;
   }
 
+  // this method is static because it is referenced in test cases
+  public static String notYetPlacedMessage() {
+    return "Bike has not been placed yet.";
+  }
+
+  private String forwardIgnoredMessage(Direction inputDirection, int inputX, int inputY) {
+    return "Forward " + inputDirection + " ignored because it is out of boundary. x=" + inputX + ",y=" + inputY;
+  }
+
   public void forward() {
     if (!hasPlaced()) {
-      logger.warn("Bike has not been placed yet.");
+      logger.warn(Bike.notYetPlacedMessage());
       return;
     }
     switch (direction) {
@@ -45,28 +54,28 @@ public class Bike {
         if (y < this.grid.getHeight() - 1) {
           y++;
         } else {
-          logger.warn("Forward {} ignored because it is out of boundary. y={}", direction, y);
+          logger.warn(forwardIgnoredMessage(direction, x, y));
         }
         break;
       case EAST:
         if (x < this.grid.getWidth() - 1) {
           x++;
         } else {
-          logger.warn("Forward {} ignored because it is out of boundary. x={}", direction, x);
+          logger.warn(forwardIgnoredMessage(direction, x, y));
         }
         break;
       case SOUTH:
         if (y > 0) {
           y--;
         } else {
-          logger.warn("Forward {} ignored because it is out of boundary. y={}", direction, y);
+          logger.warn(forwardIgnoredMessage(direction, x, y));
         }
         break;
       case WEST:
         if (x > 0) {
           x--;
         } else {
-          logger.warn("Forward {} ignored because it is out of boundary. x={}", direction, x);
+          logger.warn(forwardIgnoredMessage(direction, x, y));
         }
         break;
     }
@@ -76,7 +85,7 @@ public class Bike {
     if (hasPlaced()) {
       direction = direction.turnLeft();
     } else {
-      logger.warn("Bike has not been placed yet.");
+      logger.warn(Bike.notYetPlacedMessage());
     }
   }
 
@@ -84,7 +93,7 @@ public class Bike {
     if (hasPlaced()) {
       direction = direction.turnRight();
     } else {
-      logger.warn("Bike has not been placed yet.");
+      logger.warn(Bike.notYetPlacedMessage());
     }
   }
 
@@ -92,7 +101,7 @@ public class Bike {
     if (hasPlaced()) {
       return "(" + x + "," + y + "), " + direction;
     } else {
-      return "Bike has not been placed yet.";
+      return notYetPlacedMessage();
     }
   }
 

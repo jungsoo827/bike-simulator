@@ -11,7 +11,7 @@ public class App {
   private static final Logger logger = LoggerFactory.getLogger(App.class);
 
   public static void main(String[] args) {
-    // Only handle the JVM exit here
+    // To support test cases, execution is separated into another method
     int exitCode = execute(args);
     System.exit(exitCode);
   }
