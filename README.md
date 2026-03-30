@@ -1,4 +1,4 @@
-# Bike Application
+# Bike Simulator
 
 A Java application that simulates a bike moving on a 7x7 grid with support for various commands.
 
