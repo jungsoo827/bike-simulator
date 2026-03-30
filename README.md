@@ -75,7 +75,7 @@ build/install/bike/bin/bike
 
 Execute the following command file for the Windows environment:
 ```
-build\install\bike/bin\bike.bat
+build\install\bike\bin\bike.bat
 ```
 
 
@@ -89,7 +89,7 @@ build/install/bike/bin/bike path/to/your/input.txt
 
 Execute the following command file for the Windows environment:
 ```
-build\install\bike\bin\bike.bat path/to/your/input.txt
+build\install\bike\bin\bike.bat path\to\your\input.txt
 ```
 
 
