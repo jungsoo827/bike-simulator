@@ -6,15 +6,13 @@ A Java application that simulates a bike moving on a 7x7 grid with support for v
 
 The goal of this application is to implement a simulation engine that enforces grid boundaries and command integrity, demonstrating clean object-oriented design principles in Java.
 
-## Design and Approach 
-
-### Why I Selected the Bike-Simulation Challenge
+## Why I Selected the Bike-Simulation Challenge
 I selected the Bike-Simulation challenge because it allows me to demonstrate fundamental Object-Oriented programming principles. 
 Unlike mathematical puzzles, this challenge closely reflects real-world software engineering such as handling unpredictable input and enforcing strict business rules at system boundaries. 
 My primary strength lies in software architecture and organizing code structures, making this challenge the best fit to showcase my expertise.
 
 
-### Design & Architectural Approach
+## Design and Approach
 The application is structured into clearly separated layers to ensure maintainability and testability:
 
 * **Entry Point (App.java)**: Handles the application lifecycle, including command-line arguments, input stream selection (file or STDIN), and application exit codes.
@@ -28,7 +26,7 @@ The application is structured into clearly separated layers to ensure maintainab
 
 This architecture enforces the Single Responsibility Principle, ensuring that command parsing, movement logic, and I/O handling are strictly isolated.
 
-### Class Diagram
+## Class Diagram
 ![Bike Simulation UML](bike-simulator.puml)
 *(If the UML diagram above does not render in your environment, please refer to [bike-simulator-uml.png](bike-simulator-uml.png))*
 
@@ -59,14 +57,14 @@ To build the application:
 
 ## Running the Application
 
-To generate executable files:
+### 1. Generate Files
 ```bash
 ./gradlew installDist
 ```
 
 Generated files are stored in the build/install/bike folder.
 
-### 1. Interactive Mode
+### 2. Interactive Mode
 To run the application and provide input via STDIN:
 
 Execute the following bash file for the Linux environment:
@@ -80,7 +78,7 @@ build\install\bike\bin\bike.bat
 ```
 
 
-### 2. File Input Mode
+### 3. File Input Mode
 To run the application using a file:
 
 Execute the following bash file for the Linux environment:
