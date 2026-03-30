@@ -63,7 +63,7 @@ To generate executable files:
 ./gradlew installDist
 ```
 
-Generated files are store in build/install/bike folder.
+Generated files are stored in the build/install/bike folder.
 
 ### 1. Interactive Mode
 To run the application and provide input via STDIN:
