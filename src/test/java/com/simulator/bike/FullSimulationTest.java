@@ -7,6 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FullSimulationTest {
 
     @Test
+    public void testInvalidPlacement() {
+        Grid grid = new Grid(7, 7);
+        Bike bike = new Bike(grid);
+
+        // Attempt to place outside grid boundaries
+        bike.place(10, 10, Direction.NORTH);
+        assertEquals("Bike has not been placed yet.", bike.getReport());
+
+        // Attempt to place with invalid coordinates
+        bike.place(-1, 0, Direction.NORTH);
+        assertEquals("Bike has not been placed yet.", bike.getReport());
+    }
+
+
+    @Test
     public void testComplexSequence() {
         Grid grid = new Grid(7, 7);
         Bike bike = new Bike(grid);
